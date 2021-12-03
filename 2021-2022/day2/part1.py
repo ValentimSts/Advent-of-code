@@ -16,7 +16,6 @@ def calcPos(pos, move):
     return pos
 
 
-
 def computeFile():
 
     pos = [0,0]
@@ -28,10 +27,7 @@ def computeFile():
     print("Horizontal position: " + str(pos[0]) + \
           "\nDepth: " + str(pos[1]) + \
           "\nRes: " + str(pos[0]*pos[1]))
-
-
-
-
+    
 
 if __name__ == '__main__':
     computeFile()
