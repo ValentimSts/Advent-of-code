@@ -44,7 +44,14 @@ The commands also mean something entirely different than you first thought:
 - ```forward X``` does two things:
   - It increases your horizontal position by ```X``` units.
   - It increases your depth by your aim **multiplied** by ```X```.
-
+```
+forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2
+```
 Now, the above example does something different:
 
 - ```forward 5``` adds ```5``` to your horizontal position, a total of ```5```. Because your aim is ```0```, your depth does not change.
