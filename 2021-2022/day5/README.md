@@ -1,6 +1,6 @@
 # Day 5
 
-## part1
+## part 1
 
 You come across a field of hydrothermal vents on the ocean floor! These vents constantly produce large, opaque clouds,
 so it would be best to avoid them if possible.
@@ -52,7 +52,7 @@ Consider only horizontal and vertical lines. **At how many points do at least tw
 
 Your puzzle answer was ```4728```.
 
-## part2
+## part 2
 
 Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; you need to also consider **diagonal lines**.
 
