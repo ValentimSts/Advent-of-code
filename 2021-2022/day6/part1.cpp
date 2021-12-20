@@ -1,36 +1,45 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
+
+#define GENERATIONS 80
 
 int main()
-{    
-    int temp, fish_to_add = 0;
+{   
+    int temp;
+    auto lanternfish_count = uint64_t{0}, new_fish = uint64_t{0};
+    
+    std::unordered_map<uint64_t, uint64_t> lanternfish = {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0},
+                                                          {5, 0}, {6, 0}, {7, 0}, {8, 0}};
 
-    std::vector<int> lanternfish;
+    while(scanf("%d,", &temp) == 1) {
+        lanternfish[temp]++;
+        lanternfish_count++;
+    }
 
-    while(scanf("%d,", &temp) == 1)
-        lanternfish.push_back(temp);
+    std::cout << lanternfish_count << " initial lanternfish." << std::endl;
 
-    int aux_size = lanternfish.size(), curr_size;
+    for(int i = 0; i < GENERATIONS; i++) {
 
-    std::cout << lanternfish.size() << " initial lanternfish." << std::endl; 
+        for(int key = 0; key <= 8; key++) {
 
-    for(int i = 0; i < 80; i++) {
+            auto value = lanternfish[key];
 
-        curr_size = aux_size;
-
-        for(int fish = 0; fish < curr_size; fish++) {
-
-            if(lanternfish[fish] == 0) {
-                aux_size++;
-                lanternfish.push_back(8);
-                lanternfish[fish] = 6;
+            if(key == 0) {
+                lanternfish[0] = 0;
+                lanternfish_count += value;
+                new_fish = value;
             }
             else {
-                lanternfish[fish]--;
+                lanternfish[key-1] += value;
+                lanternfish[key] = 0;
             }
-
         }
+        lanternfish[6] += new_fish;
+        lanternfish[8] += new_fish;
+
+        new_fish = 0;
     }
-    
-    std::cout << lanternfish.size() << " total lanternfish." << std::endl; 
+
+    std::cout << lanternfish_count << " total lanternfish." << std::endl; 
 }
